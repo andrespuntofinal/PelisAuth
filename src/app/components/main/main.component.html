@@ -1,11 +1,11 @@
 <div class="row row-cols-1 row-cols-md-3 g-4">
-  <div class="col" *ngFor="let pelis of nuevasPeliculas">
-    <div class="card">
-      <img [src]="pelis.urlimg" class="card-img-top" alt="...">
+  <div class="col" *ngFor="let pelis of nuevasPeliculas" >
+    <div class="card" >
+      <img [src]="pelis.urlimg" class="card-img-top" alt="..." style="height: 12rem;">
       <div class="card-body">
         <h5 class="card-title"> {{ pelis.nombre }} </h5>
-        <p class="card-text"> {{ pelis.descripcion }} </p>
-        <div class="card-footer">
+       
+        <div class="card-body">
           <p class="card-text"><small class="text-body-secondary"> Género: {{ pelis.genero }} </small></p>
           <p class="card-text"><small class="text-body-secondary"> Director: {{ pelis.director }} </small></p>
           <p class="card-text"><small class="text-body-secondary"> Elenco: {{ pelis.elenco }} </small></p>

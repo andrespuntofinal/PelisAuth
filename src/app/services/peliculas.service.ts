@@ -15,4 +15,11 @@ export class PeliculasService {
   
 
   }
+
+  getPeliculas(termino: string ){
+
+    return this.http.get(`http://localhost:9001/api/peliculas/${ termino }`);
+  
+
+  }
 }
