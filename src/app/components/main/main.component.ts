@@ -10,17 +10,27 @@ import { PeliculasService } from 'src/app/services/peliculas.service';
 export class MainComponent implements OnInit {
 
  nuevasPeliculas: any[] = [];
-
+ loading: boolean;
+ error: boolean;
+ mensajeError: string;
 
 
 
   constructor( private peliculas: PeliculasService ) {
+
+    this.loading = true;
+
       this.peliculas.getNewPeliculas()
           .subscribe( (data: any) => {
-          console.log( data.peliculas );
-          this.nuevasPeliculas = data.peliculas;
+          this.nuevasPeliculas = data;
+          this.loading = false;
 
+          }, ( errorServicio ) => {  
 
+            this.loading = false;
+            this.error= true;
+            console.log(errorServicio);
+            this.mensajeError = "Temporalmente fuera de servicio";
           });
   
    }

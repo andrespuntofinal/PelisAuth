@@ -9,6 +9,9 @@ import { PeliculasService } from 'src/app/services/peliculas.service';
 export class SearchComponent implements OnInit {
 
   peliculassearch: any[] = [];
+  loading: boolean;
+  error: boolean;
+  mensajeError: string;
 
   constructor(private peliculas: PeliculasService) { }
 
@@ -16,13 +19,22 @@ export class SearchComponent implements OnInit {
 
     console.log(termino); 
 
+    this.loading = true;
+    this.error = false;
+
+
     this.peliculas.getPeliculas( termino )
         .subscribe( (data: any)  =>{
+          this.peliculassearch = data;
+          this.loading = false;
 
-          console.log( data.peliculas );
-          this.peliculassearch = data.peliculas;
+        }, ( errorServicio ) => {  
 
-        }); 
+          this.loading = false;
+          this.error= true;
+          console.log(errorServicio);
+          this.mensajeError = "Temporalmente fuera de servicio";
+        });
 
   }
 

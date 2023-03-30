@@ -6,20 +6,14 @@
 
 </div>
 
+<app-loading *ngIf="loading"></app-loading>
+<div *ngIf="error" class="alert alert-danger animated fadeIn">
 
-<div class="card mb-3" style="width: 28rem;">
- 
-      <img [src]="peliculassearch.urlimg" class="card-img-top" >
-      <div class="card-body">
-        <h5 class="card-title"> {{ peliculassearch.nombre }} </h5>
-        <p class="card-text"> {{ peliculassearch.descripcion }} </p>
-        <div class="card-footer">
-          <p class="card-text"><small class="text-body-secondary"> Género: {{ peliculassearch.genero }} </small></p>
-          <p class="card-text"><small class="text-body-secondary"> Director: {{ peliculassearch.director }} </small></p>
-          <p class="card-text"><small class="text-body-secondary"> Elenco: {{ peliculassearch.elenco }} </small></p>
-          <p class="card-text"><small class="text-body-secondary"> Duración: {{ peliculassearch.duracion }} </small></p>
-          <p class="card-text"><small class="text-body-secondary"> Año: {{ peliculassearch.anio }} </small></p>
-          <a href="#" class="btn btn-secondary">Reproducir</a>
-        </div>
-      </div>
-    </div>
+  <h3>Error</h3>
+  <p>{{ mensajeError }}</p>
+
+</div>
+<ng-container *ngIf="peliculassearch.nombre != null">
+  <app-tarjetascon [peliculassearch]="peliculassearch" ></app-tarjetascon>
+</ng-container>
+

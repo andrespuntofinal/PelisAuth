@@ -18,6 +18,10 @@ import { PeliculaComponent } from './components/pelicula/pelicula.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { ROUTES } from './app.routes';
 import { MainComponent } from './components/main/main.component';
+import { NoimagePipe } from './pipes/noimage.pipe';
+import { LoadingComponent } from './components/shared/loading/loading.component';
+import { TarjetasComponent } from './components/tarjetas/tarjetas.component';
+import { TarjetasconComponent } from './components/tarjetascon/tarjetascon.component';
 
 
 @NgModule({
@@ -29,7 +33,11 @@ import { MainComponent } from './components/main/main.component';
     SearchComponent,
     PeliculaComponent,
     NavbarComponent,
-    MainComponent
+    MainComponent,
+    NoimagePipe,
+    LoadingComponent,
+    TarjetasComponent,
+    TarjetasconComponent
   ],
   imports: [
     BrowserModule,

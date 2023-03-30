@@ -1,19 +1,10 @@
-<div class="row row-cols-1 row-cols-md-3 g-4">
-  <div class="col" *ngFor="let pelis of nuevasPeliculas" >
-    <div class="card" >
-      <img [src]="pelis.urlimg" class="card-img-top" alt="..." style="height: 12rem;">
-      <div class="card-body">
-        <h5 class="card-title"> {{ pelis.nombre }} </h5>
-       
-        <div class="card-body">
-          <p class="card-text"><small class="text-body-secondary"> Género: {{ pelis.genero }} </small></p>
-          <p class="card-text"><small class="text-body-secondary"> Director: {{ pelis.director }} </small></p>
-          <p class="card-text"><small class="text-body-secondary"> Elenco: {{ pelis.elenco }} </small></p>
-          <p class="card-text"><small class="text-body-secondary"> Duración: {{ pelis.duracion }} </small></p>
-          <p class="card-text"><small class="text-body-secondary"> Año: {{ pelis.anio }} </small></p>
-          <a href="#" class="btn btn-secondary">Reproducir</a>
-        </div>
-      </div>
-    </div>
-  </div>
+
+<app-loading *ngIf="loading"></app-loading>
+<div *ngIf="error" class="alert alert-danger animated fadeIn">
+
+  <h3>Error</h3>
+  <p>{{ mensajeError }}</p>
+
 </div>
+
+<app-tarjetas [items]="nuevasPeliculas" ></app-tarjetas>
