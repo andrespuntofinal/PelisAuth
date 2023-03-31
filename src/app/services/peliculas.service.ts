@@ -31,4 +31,6 @@ export class PeliculasService {
               .pipe(map( data =>  data['peliculas']));
 
   }
+
+
 }
