@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class PeliculasService {
 
   getQuery( query: string ) {
 
-    const url = `http://localhost:9001/api/peliculas${ query }`
+    const url = environment.domainpeliculas + query;
 
     return this.http.get( url );
   }

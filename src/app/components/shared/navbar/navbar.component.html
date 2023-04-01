@@ -14,8 +14,23 @@
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link" routerLink="search">Buscar película</a>
         </li>
+        
+        <li  *ngIf="auth.userToken" class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Menú Administrador
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Administrar peliçulas</a></li>
+            <li><a class="dropdown-item" href="#">Administrar usuarios</a></li>
+            <li><a class="dropdown-item" href="#">Administrar cines</a></li>
+          </ul>
+        </li>
+
         <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" routerLink="login">Login</a>
+          <a  *ngIf="!auth.userToken" (click)="auth.login()" class="nav-link" routerLink="login">Iniciar sesión</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a   *ngIf="auth.userToken" (click)="auth.loguot()" class="nav-link" routerLink="main">Salir</a>
         </li>
        
       </ul>
