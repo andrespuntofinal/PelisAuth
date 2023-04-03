@@ -17,12 +17,13 @@
         
         <li  *ngIf="auth.userToken" class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Menú Administrador
+            Menú Usuario
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Administrar peliçulas</a></li>
-            <li><a class="dropdown-item" href="#">Administrar usuarios</a></li>
-            <li><a class="dropdown-item" href="#">Administrar cines</a></li>
+
+            <li><a class="dropdown-item" routerLink="home">Promociones</a></li>
+            <li><a class="dropdown-item" routerLink="home">Cine Puntos</a></li>
+            <li><a class="dropdown-item" routerLink="home">Mi perfil</a></li>
           </ul>
         </li>
 
@@ -32,6 +33,13 @@
         <li class="nav-item" routerLinkActive="active">
           <a   *ngIf="auth.userToken" (click)="auth.loguot()" class="nav-link" routerLink="main">Salir</a>
         </li>
+
+        <li class="nav-item" routerLinkActive="active">
+          <h4 *ngIf="auth.userToken" (click)="auth.loguot()" > <span class="badge bg-secondary"> {{ nombreusu }} </span></h4>
+        </li>
+
+       
+
        
       </ul>
    

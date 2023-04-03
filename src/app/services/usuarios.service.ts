@@ -21,6 +21,21 @@ export class UsuariosService {
   };
 
   constructor( private http: HttpClient ) { }
+
+
+  getQuery( query: string ) {
+
+    const url = environment.domainusuarios + query;
+
+    return this.http.get( url );
+  }
+
+  getNewUsuarios(){
+
+    return this.getQuery('?limite=20')
+               .pipe(map( data => data['usuarios']));
+             
+  }
  
  
   guardarUsuarios(usuarios: UsuarioModel):Observable<any>  {

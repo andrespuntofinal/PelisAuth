@@ -56,6 +56,7 @@ export class LoginComponent implements OnInit {
 
       //console.log("xxxxxxxx" + resp['localId']);
       localStorage.setItem('uid', resp['localId']);
+      
 
       this.router.navigateByUrl('/home');
 

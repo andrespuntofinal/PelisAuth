@@ -26,6 +26,7 @@ export class AuthService {
   loguot(){
 
     localStorage.removeItem('token');
+    localStorage.removeItem('nombreusr');
     this.userToken = '';
 
   }
@@ -45,7 +46,9 @@ export class AuthService {
     )
     .pipe(
       map( resp=> {
-        
+
+
+        localStorage.setItem('nombreusr', resp['email']);
         this.guardarToken( resp['idToken'] );
         return resp;
       })
@@ -69,6 +72,7 @@ export class AuthService {
 
     ).pipe(
       map( resp=> {
+
         
         this.guardarToken( resp['idToken'] );
         return resp;
@@ -82,6 +86,7 @@ export class AuthService {
 
     this.userToken = idToken;
     localStorage.setItem('token', idToken);
+    
 
     let hoy = new Date();
     hoy.setSeconds( 3600 );

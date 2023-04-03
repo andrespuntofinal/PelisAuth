@@ -10,10 +10,15 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class NavbarComponent implements OnInit {
 
+  nombreusu: any;
+
   constructor( private auth: AuthService,
     private router: Router) { }
 
   ngOnInit() {
+
+    this.nombreusu = localStorage.getItem('nombreusr');
+    
   }
 
 
